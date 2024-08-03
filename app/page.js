@@ -114,7 +114,7 @@ export default function Home() {
     <Box
       width="100vw"
       height="100vh"
-      bgcolor="#d0f6fc"
+      bgcolor="#272626"
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -164,23 +164,25 @@ export default function Home() {
         </Box>
       </Modal>
       
-      <Typography variant="h2" textAlign="center" padding={0}>Inventory Manager</Typography>
+      <Typography variant="h2" textAlign="center" color="#36fff2" fontFamily="Montserrat" padding={0}>INVENTORY MANAGER</Typography>
       <Button variant="contained" color="success" onClick={() => {
           handleOpen()
         }}>
           Add New Item
       </Button>
-      <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center" gap={2}>
-        <TextField 
-            variant="filled"
-            width="200px"
-            bgcolor="white"
-            size="small"
-            value={itemName}
-            onChange={(e)=>{
-              setItemName(e.target.value)
-            }}
-        />
+      <Box width="300px" bgcolor="#272626" display="flex" alignItems="center" justifyContent="center" gap={2}>
+        <Box width="200px" bgcolor="white">
+          <TextField 
+              variant="filled"
+              width="200px"
+              bgcolor="white"
+              size="small"
+              value={itemName}
+              onChange={(e)=>{
+                setItemName(e.target.value)
+              }}
+          />
+        </Box>
         <Button variant="contained" onClick={() => {
           searchFor(itemName)
         }}>Search</Button>
@@ -189,81 +191,84 @@ export default function Home() {
         }}>Clear</Button>
       </Box>
         
-
-      <Box border="1px solid #333" bgcolor="white">
-        <Box
-          width="900px"
-          height="100px"
-          bgcolor="#ADD8E6"
-          display="flex"
-          alignItems="center"
-          justifyContent="left"
-        >
-          <Box width="300px" bgcolor="#ADD8E6" display="flex" alignItems="center" justifyContent="center">
-            <Typography variant="h4" color="#333">Name</Typography>
-          </Box>
-          <Box width="300px" bgcolor="#ADD8E6" display="flex" alignItems="center" justifyContent="center">
-            <Typography variant="h4" color="#333">Quantity</Typography>
-          </Box>
-          <Box width="300px" bgcolor="#ADD8E6" display="flex" alignItems="center" justifyContent="center">
-            <Typography variant="h4" color="#333">Edit</Typography>
-          </Box>
-        </Box>
-      <Stack
-        width="900px"
-        height="300px"
-        spacing={1}
-        overflow="auto"
-      >
-        {
-          inventory.map(({name, quantity}) => (
-            <Box
-            key={name}
-            width="100%"
-            minHeight="100px"
+      <Box width="915px" height="415px" bgcolor="#535353" borderRadius="10px" alignItems="center" justifyContent="center" padding={1}>
+        <Box border="1px solid ##535353" bgcolor="white" borderRadius="10px">
+          <Box
+            width="900px"
+            height="75px"
+            bgcolor="#d0f6fc"
+            border="2px solid #535353"
             display="flex"
-            aiignItems="center"
+            alignItems="center"
             justifyContent="left"
-            bgcolor="#f0f0f0"
-            >
-              <Box width="300px" display="flex" alignContent="center" justifyContent="center" padding={4}>
-                <Typography
-                  variant="h5"
-                  color="333"
-                  textAlign="center"
-                >
-                  {name.charAt(0).toUpperCase() + name.slice(1)}
-                </Typography>
-              </Box>
-              <Box width="300px" display="flex" alignContent="center" justifyContent="center" padding={4}>
-                <Typography
-                  variant="h5"
-                  color="333"
-                  textAlign="center"
-                >
-                  {quantity}
-                </Typography>
-              </Box>
-              <Box width="300px" display="flex" alignContent="center" justifyContent="center" gap={2} padding={4}>
-                <Button variant="contained" size="small" onClick={() => {
-                  increaseItem(name)
-                }}>
-                  +
-                </Button>
-                <Button variant="contained" size="small" onClick={() => {
-                  decreaseItem(name)
-                }}>
-                  -
-                </Button>
-                <Button variant="contained" size="small" onClick={() => {
-                  removeItem(name)
-                }}>
-                  Remove
-                </Button>
-              </Box>
+          >
+            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+              <Typography variant="h4" color="#333">Name</Typography>
             </Box>
-          ))}
-      </Stack>
+            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+              <Typography variant="h4" color="#333">Quantity</Typography>
+            </Box>
+            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+              <Typography variant="h4" color="#333"></Typography>
+            </Box>
+          </Box>
+          <Stack
+            width="900px"
+            height="325px"
+            border="2px solid #535353"
+            spacing={1}
+            overflow="auto"
+          >
+            {
+              inventory.map(({name, quantity}) => (
+                <Box
+                  key={name}
+                  width="100%"
+                  minHeight="100px"
+                  display="flex"
+                  aiignItems="center"
+                  justifyContent="left"
+                  bgcolor="#f0f0f0"
+                >
+                  <Box width="300px" display="flex" alignContent="center" justifyContent="center" padding={4}>
+                    <Typography
+                      variant="h5"
+                      color="333"
+                      textAlign="center"
+                    >
+                      {name.charAt(0).toUpperCase() + name.slice(1)}
+                    </Typography>
+                  </Box>
+                  <Box width="300px" display="flex" alignContent="center" justifyContent="center" padding={4}>
+                    <Typography
+                      variant="h5"
+                      color="333"
+                      textAlign="center"
+                    >
+                      {quantity}
+                    </Typography>
+                  </Box>
+                  <Box width="300px" display="flex" alignContent="center" justifyContent="center" gap={2} padding={4}>
+                    <Button variant="contained" size="small" color="success" onClick={() => {
+                      increaseItem(name)
+                    }}>
+                      +
+                    </Button>
+                    <Button variant="contained" size="small" color="error" onClick={() => {
+                      decreaseItem(name)
+                    }}>
+                      -
+                    </Button>
+                    <Button variant="contained" size="small" color="warning" onClick={() => {
+                      removeItem(name)
+                    }}>
+                      Remove
+                    </Button>
+                  </Box>
+                </Box>
+            ))}
+          </Stack>
+        </Box>
       </Box>
     </Box>
   )
