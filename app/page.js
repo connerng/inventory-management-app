@@ -164,13 +164,8 @@ export default function Home() {
         </Box>
       </Modal>
       
-      <Typography variant="h2" textAlign="center" color="#36fff2" fontFamily="Montserrat" padding={0}>INVENTORY MANAGER</Typography>
-      <Button variant="contained" color="success" onClick={() => {
-          handleOpen()
-        }}>
-          Add New Item
-      </Button>
-      <Box width="300px" bgcolor="#272626" display="flex" alignItems="center" justifyContent="center" gap={2}>
+      <Typography variant="h2" textAlign="center" color="#36fff2" fontFamily="Montserrat" padding={2}>INVENTORY MANAGER</Typography>
+      <Box width="600px" bgcolor="#272626" display="flex" alignItems="center" justifyContent="center" gap={2}>
         <Box width="200px" bgcolor="white">
           <TextField 
               variant="filled"
@@ -185,16 +180,28 @@ export default function Home() {
         </Box>
         <Button variant="contained" onClick={() => {
           searchFor(itemName)
-        }}>Search</Button>
+        }}>
+          Search
+        </Button>
         <Button variant="contained" onClick={() => {
           searchFor('')
-        }}>Clear</Button>
+        }}>
+          Clear
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => {
+            handleOpen()
+          }}>
+            Add New Item
+        </Button>
       </Box>
         
-      <Box width="915px" height="415px" bgcolor="#535353" borderRadius="10px" alignItems="center" justifyContent="center" padding={1}>
+      <Box width="765px" height="415px" bgcolor="#535353" borderRadius="10px" alignItems="center" justifyContent="center" padding={1}>
         <Box border="1px solid ##535353" bgcolor="white" borderRadius="10px">
           <Box
-            width="900px"
+            width="750px"
             height="75px"
             bgcolor="#d0f6fc"
             border="2px solid #535353"
@@ -202,18 +209,18 @@ export default function Home() {
             alignItems="center"
             justifyContent="left"
           >
-            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+            <Box width="250px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
               <Typography variant="h4" color="#333">Name</Typography>
             </Box>
-            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+            <Box width="250px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
               <Typography variant="h4" color="#333">Quantity</Typography>
             </Box>
-            <Box width="300px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
+            <Box width="250px" bgcolor="#d0f6fc" display="flex" alignItems="center" justifyContent="center">
               <Typography variant="h4" color="#333"></Typography>
             </Box>
           </Box>
           <Stack
-            width="900px"
+            width="750px"
             height="325px"
             border="2px solid #535353"
             spacing={1}
